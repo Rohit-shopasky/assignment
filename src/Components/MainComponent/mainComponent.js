@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import stores from "../../stores";
 import Filters from "../Filters/filterComponent";
-import MissionCard from "../MissionCard/missionCardComponent";
+import MissionCard from "../MissionCard/CardComponent";
+import { css } from "@emotion/core";
+import PulseLoader from "react-spinners/PulseLoader";
 
 import {
   Heading,
@@ -15,6 +17,13 @@ import {
   DeveloperName,
 } from "./styledComponents.js";
 import "./styles.css";
+
+const override = css`
+  display: block;
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+`;
 
 @observer
 class MainComponent extends Component {
@@ -44,16 +53,19 @@ class MainComponent extends Component {
         <InfoContainer>
           <Filters />
           {!stores.storeInstance.missionsList ? (
-            <Loader>
-              <div className="loader" />
-            </Loader>
+            <PulseLoader
+              css={override}
+              size={10}
+              color={"#3498db"}
+              loading={true}
+            />
           ) : (
-              this.renderMissionsList()
-            )}
+            this.renderMissionsList()
+          )}
         </InfoContainer>
         <Footer>
           <FooterText>{`Developed by: `}</FooterText>
-          <DeveloperName>{`Sai Neeraja`}</DeveloperName>
+          <DeveloperName>{`Rohit Kumar`}</DeveloperName>
         </Footer>
       </Container>
     );

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import stores from "../../stores";
-import ButtonComponent from "../ButtonComponent/buttonComponent";
-import SectionHeader from "../SectionHeader/sectionComponent";
+import ButtonComponent from "../Button/buttonComponent";
+import SectionHeader from "../Header/sectionComponent";
 import { Container, Heading, YearsContainer } from "./styledComponents.js";
 
 @observer
